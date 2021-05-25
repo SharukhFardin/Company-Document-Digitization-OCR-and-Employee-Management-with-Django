@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+</head>
+<body style="background-image:url({% static 'background.jpg' %}); background-size:cover; background-position:0% -4%; background-repeat:no-repeat; height:100%;">
+    <div class="icon-bar">
+        <img id="pic" src="{% static 'Million-Dollar-Logo.jpg' %}" alt="Plan international logo" width="60" height="60">
+        <a class="active" href="admin_page"><button id="A-btn">Home </button></a>
+        <a href=""><button id="A-btn">Message </button></a>
+        <!-- <a href="A_repository"><button id="A-btn">Repository </button></a> -->
+        <a href="A_notification"><button id="A-btn">Notification </button></a>
+        <a href="Create_user"><button id="A-btn">Create User</button></a>
+        <a href="admin_profile"><button id="A-btn">Profile </button></a>
+        <a href="logout_user"><button id="A-btn">Log-Out </button></a>
+    </div>
+    {% block content %}
+    {%
+      <h2 style="float:right;  padding-top:50px; padding-right:20px;">Weclome, {{ xy }}</h1>
+    %}
+
+
+    <link rel="stylesheet" href="{% static 'admin_page.css' %}"> <!-- stylesheet for admin home page -->
+
+     <center><h1 id="cname">Plan International</h1></center>
+      <div class="search-container">
+        <form action="search_page" method="post">
+          {% csrf_token %}
+          <input class="form-control me-2" aria-label="Search" type="search" placeholder="Search.." name="search" style="width: 620px; height:35px; border-color:black;">
+        </form>
+      </div>
+
+      <div class="flex-container">
+        <div class="flex-child total_user">
+          <h1>Total users: {{ tu }} </h1>
+        </div>
+
+        <div class="flex-child total_group">
+          <h1>Total groups: {{ tg }} </h1>
+       </div>
+      </div>
+
+      {% endblock %}
+
+      <div class="footer">
+        <p>Contact: <br>
+            +0099809742 <br>
+            example.mail@plani.org
+      </div>
+</body>
+</html>

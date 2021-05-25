@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDS</title>
+  <link rel="stylesheet" href="sds.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- code for the drop down menu ☰ -->
+<div class="container">
+  <nav class="fixed-nav-bar">
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">☰</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#cover" onclick="w3_close()" class="w3-bar-item w3-button">Cover</a>
+      <a href="#toc" onclick="w3_close()" class="w3-bar-item w3-button">Table of Contents</a>
+            <a href="#doc_intro" onclick="w3_close()" class="w3-bar-item w3-button">Introduction</a>
+      <a href="#doc_convention" onclick="w3_close()" class="w3-bar-item w3-button">Document Conventions</a>
+      <a href="#design_component" onclick="w3_close()" class="w3-bar-item w3-button">Description of Design Components</a>
+      <a href="#high_level" onclick="w3_close()" class="w3-bar-item w3-button">High Level Component Design</a>
+      <a href="#classD" onclick="w3_close()" class="w3-bar-item w3-button">Class Diagrams and Description</a>
+      <a href="#sequenceD" onclick="w3_close()" class="w3-bar-item w3-button">Sequence Diagrams</a>
+      <a href="#DBdesign" onclick="w3_close()" class="w3-bar-item w3-button">Database Design</a>
+      <a href="#plan" onclick="w3_close()" class="w3-bar-item w3-button">Implementation Plan</a>
+    </div>
+  </div>
+
+<!-- Print Button -->
+  <button id="btnPrint" onclick="window.print()">Print</button>
+  </nav>
+
+<!-- NSU LOGO INSERTION -->
+  <div id="cover" class="text-center" style="padding:30px">
+    <img id="pic" src="Pictures/nsu.png" alt="NSU logo" >
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 href="#"> Software Design Specification</h1>
+    <h1 style="padding:0.01px">For</h1>
+    <h1 id="cover">'DOCUMENT DlGITIZATION'</h1>
+  </div>
+    <p><br></p>
+    <p><br></p>
+
+  <!-- The table for showing group memmbers information(by using bootsrtap) -->
+    <p id="pre"><font size="5">Prepared By:</font></p>
+
+    <table class="table table-bordered" style="table-layout: fixed; width:50%; border:1px solid black; text-align:center;" align="center">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>ID</td>
+        </tr>
+        <tr>
+          <td>Sajib Hossain</td>
+          <td>1821245642</td>
+        </tr>
+        <tr>
+          <td>Md. Sharukh Fardin</td>
+          <td>1821463042</td>
+        </tr>
+        <tr>
+          <td>Md Kamrus Samad</td>
+          <td>1813059642</td>
+        </tr>
+        <tr>
+          <td>Tanvir Al Mahmud</td>
+          <td>1813564042</td>
+        </tr>
+      </tbody>
+    </table>
+  <p style="page-break-after:always"></p>
+
+    <p><br></p>
+    <p><br></p>
+
+<!-- Information's Star. . . -->
+ <div class="w3-container w3-padding-32 w3-center">
+  <h1 id="toc" href="#"> Table of Contents </h1><br>
+
+  <!-- Table for showing table of contents -->
+  <table class="center" style="width:100%; margin: auto auto auto auto;">
+    <tr>
+      <td>1. Introduction................................................................................................................................................................................................ </td>
+      <td text-align="right"> 2 </td>
+    </tr>
+    <tr>
+      <td>2. Document Conventions......................................................................................................................................................................... </td>
+      <td text-align="right"> 3 </td>
+    </tr>
+    <tr>
+      <td>3. Description of Design Components..................................................................................................................................................</td>
+      <td text-align="right"> 3 </td>
+    </tr>
+    <tr>
+      <td>4. High Level Component Design...........................................................................................................................................................</td>
+      <td text-align="right"> 4 </td>
+    </tr>
+    <tr>
+      <td>5. UML Class Diagram With Description..............................................................................................................................................</td>
+      <td text-align="right"> 5 </td>
+    </tr>
+    <tr>
+      <td>6. Sequence Diagrams.................................................................................................................................................................................</td>
+      <td text-align="right"> 11 </td>
+    </tr>
+    <tr>
+      <td>7. Database Design.......................................................................................................................................................................................</td>
+      <td text-align="right"> 12 </td>
+    </tr>
+    <tr>
+      <td>8. Implementation Plan...............................................................................................................................................................................</td>
+      <td text-align="right"> 14 </td>
+    </tr>
+  </table>
+
+  <p><br></p>
+  <p><br></p>
+  </div>
+  <br>
+
+  <div class="w3-container w3-padding-32 w3-center">
+  <h1 id="doc_intro" href="#"> Introduction </h1><br>
+  <h4>Purpose</h4>
+  <p align="justify">This document will define the Software Design Specification for "DOCUMENT DlGITIZATION". It contains specific information
+about the expected input, output, classes, and functions. The interaction between the classes to
+meet the desired requirements are outlined in detailed figures at the end of the document. This document will outline
+the software design and specification of our workflow task management system in addition to system
+architecture, system components, and software requirements. This document also specify and visualize all-requirement by client, hardware specification, software architecture and database system for the software
+  </p>
+  <br>
+  <h4>Scope</h4>
+  <p align="justify">This Design Specification is to be used by Team Radioactive as a definition of the design to be used to implement the sofware system for data digitization which will enable user to upload, update and customize document with specific role and right. </p>
+
+
+  <p style="page-break-after:always"></p>
+  <p><br></p>
+  <p><br></p>
+  </div>
+  <br>
+
+  <div class="w3-container w3-padding-32 w3-center">
+  <h1 id="doc_convention" href="#"> Document Conventions </h1><br>
+
+  <p>The IEEE standard will be maintained for this document with the standard typographical and design conventions.</p>
+
+  <p><br></p>
+  <p><br></p>
+  </p>
+
+</div>
+
+<div class="w3-container w3-padding-32 w3-center">
+  <h1 id="design_component" href="#"> Description of Design Components </h1><br>
+  <div class="text-center"><img width="80%" height="auto" src="Pictures/Component_Design.jpg" alt="Component Design"></div>
+  <p><br></p>
+  <p align="justify">There are 4 total components. They are Server side, API(REST API will be used) and client side. In client side, there are Desctop and Mobile client. Server performs the operations in a client-server relationship in a computer network. Server will store and process all the data's that are used. In client side,
+  the view will be generated. The REST API will connect the server with two of the clients. </p>
+
+  <p style="page-break-after:always"></p>
+  <p><br></p>
+  <p><br></p>
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 id="high_level" href="#"> High Level Component Design </h1><br>
+    <div class="text-center"><img src="Pictures/High_level_component.jpg" alt="High Level Component"></div>
+
+    <p style="page-break-after:always"></p>
+    <p><br></p>
+    <p><br></p>
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 id="classD" href="#"> Class Diagrams and Description </h1><br>
+    <h4 class="text-center" >UML Class Diagram</h4>
+    <p><br></p>
+    <div class="text-center"><img src="Pictures/class_diagram.jpg" alt="Class Diagram"></div>
+    <p style="page-break-after:always"></p>
+    <p><br></p>
+    <p><br></p>
+    <h4 style="padding: 0px 0px 15px 0px;">Detailed Class Description:</h4>
+    <h5>Class: File Management</h5>
+    <p>Purpose of this class is dealing document file details.</p>
+    <h6>Attributes:</h6>
+    <p>
+      • doc_name (String): This attribute takes the document file’s individual name. <br>
+      • index (Int): Counting the uploaded file. <br>
+      • upload_date (Date): Storing the document uploading moment. <br>
+      • uploader_name (String): Who uploads the document. <br>
+      • author_name (String): Writer of the document. <br>
+    </p>
+    <h6>Methods:</h6>
+    <p>
+      upload_file (doc_name, index, upload_date, uploder_name, author_name)<br>
+•	Return type: Void<br>
+•	Purpose and description: Uploading document file send to server by user.<br><br>
+Delete_file (doc_name)<br>
+• Return type: Void<br>
+• Purpose and description: Deleting document file from server by user.<br><br>
+Count_doc (index)<br>
+• Return type: Int<br>
+• Purpose and description: Counting how many documents are stored<br><br>
+Files_details ( )<br>
+• Return type: String<br>
+• Purpose and description: Delivering the details about file (uploader name, date etc.).<br><br>
+
+    </p>
+
+
+<h5>Class: USER</h5>
+<p>Purpose of this class is dealing user details.</p>
+<h6>Attributes:</h6>
+<p>
+  • name (String): This attribute takes the user name. <br>
+  • user_id (Int): Every user will have individual id.<br>
+  • user_role (String): Position in the company.<br>
+  • password (String): User password for secure his account.<br>
+  • user_link (String): ??????<br>
+  </p>
+<h6>Methods:</h6>
+<p>
+  login (user_id, password)<br>
+•	Return type: Void<br>
+•	Purpose and description: User can login and landing to the dashboard.<br><br>
+logout ( )<br>
+•	Return type: Void<br>
+•	Purpose and description: User can logout from account.<br><br>
+Avatar_change ( )<br>
+•	Return type: Int<br>
+•	Purpose and description: User can use or delete or change avater.<br><br>
+Password_ change_req ()<br>
+•	Return type: Void<br>
+•	Purpose and description: User can send request to admin for changing his password.<br><br>
+
+</p>
+<h5>Class: Employee</h5>
+<p>This class is a child class of User class. This class can handle employee’s purpose and documents.</p> <br>
+
+<h5>Class: Admin</h5>
+<p>This class is a child class of User class. This class based on main roll call Admin. It has some important and unique feature to done.</p>
+<h6>Methods:</h6>
+<p>
+  Creat_user (name, user_id, password)<br>
+  •	Return type: Void<br>
+  •	Purpose and description: User creation action is execute by this method.<br><br>
+  Delete_user (user_id)<br>
+  •	Return type: Void<br>
+  •	Purpose and description: This method delete user from server.<br><br>
+  Change_password (user_id)<br>
+  •	Return type: String<br>
+  •	Purpose and description: Admin can allow to change password or not for any user.<br><br>
+  Creat_role (user_id, user_role)<br>
+  •	 Return type: void<br>
+  •	Purpose and description: Admin can select the user role ex: who will be the manager?<br><br>
+  </p>
+  <h5>Class: Manger</h5>
+    <p>This class is a child class of User class. This class is for manage groups and there works.</p>
+    <h6>Methods:</h6>
+    <p>
+      Creat_repository (repo_name, user_id, upload_date)<br>
+•	Return type: Void<br>
+•	Purpose and description: This method create repository for a group. And creator only can manage the repository.<br><br>
+Delete_ repository (repo_name)<br>
+•	Return type: Void<br>
+•	Purpose and description: This method can delete repository any time but only creator can delete the repository.<br><br>
+    </p>
+
+    <h5>Class: Groups</h5>
+    <p>Purpose of this class is dealing users group.</p>
+    <h6>Attributes:</h6>
+    <p>•	group (String): This attribute takes the group name.</p>
+    <h6>Methods:</h6>
+    <p>
+      Creat_groups (group)<br>
+•	Return type: Void<br>
+•	Purpose and description: Group creation action is performed by this method.<br><br>
+Delete_group (group)<br>
+•	Return type: Void<br>
+•	Purpose and description: This method delete group.<br><br>
+Add_member (user_id, group)<br>
+•	Return type: Void<br>
+•	Purpose and description: Adding member to the group.<br><br>
+remove_ member (user_id, group)<br>
+•	 Return type: void<br>
+•	Purpose and description: Remove member from the group.<br><br>
+    </p>
+
+    <h5>Class: Repository </h5>
+    <p>User can create repository and unlimited folder as well as delete folder too. User should be verified by authority and must have permission to access all the folder and file. This user verification and all mentioned functionality is done by this repository class.</p>
+    <h6>Attributes:</h6>
+    <p>
+      •	Repo_name (String): This string type variable will store the repository name created by user. <br>
+•	Upload_date (Date): This variable will contain the upload date of any document or file.<br>
+•	Folder_name (String): This string type variable will store the folder name created by user.<br>
+
+    </p>
+    <h6>Methods:</h6>
+    <p>
+      Create_folder (folder_name)<br>
+•	Return type: Void<br>
+•	Purpose and description: Folder creation action is performed by this method.<br><br>
+Delete_folder (folder_name)<br>
+•	Return type: Void<br>
+•	Purpose and description: Folder deletion action is performed by this method.<br><br>
+Verify_user (user_id)<br>
+•	Return type: String<br>
+•	Purpose and description: This method ensure that only verify and permitted user by admin can access the repository and containing folder and also notify admin.<br><br>
+
+    </p>
+
+    <h5>Class: Message</h5>
+    <p>The message class is where user can communicate with each other by sending text. This class is capable of sending, receiving and deleting text message.</p>
+    <h6>Attributes:</h6>
+    <p>• message (string): This string type variable will hold the message to carry.</p>
+    <h6>Methods:</h6>
+    <p>
+      Send_msg(message)<br>
+      •	Return type: String<br>
+      •	Purpose and description: This method will send message to the desired receiver.<br><br>
+      Delete_msg (message)<br>
+      •	Return type: Void<br>
+      •	Purpose and description: To delete the message this method will be called.<br><br>
+      receive_msg (message)<br>
+      •	Return type: String<br>
+      •	Purpose and description: This method will receive the message from sender.<br><br>
+      </p>
+
+      <h5>Class: Search</h5>
+    <p>Search class will execute search command and go through the database to find out the result.</p>
+    <h6>Attributes:</h6>
+    <p>•	var (String): This string type variable will store the string for user search keyword.</p>
+    <h6>Methods:</h6>
+    <p>
+      search(var)<br>
+•	Return type: String<br>
+•	Purpose and description: This method perform search operation and show results.<br><br>
+
+    </p>
+
+    <h5>Class: Notification</h5>
+    <p>This class will handle notification system for the whole system by notifying user in different cases.</p>
+    <h6>Attributes:</h6>
+    <p>•	message (String): This message attribute carry the message about notification about what happened in the system for specific action.</p>
+    <h6>Methods:</h6>
+    <p>
+      Notify_pass_change (message)<br>
+•	Return type: String<br>
+•	Purpose and description: Notifying admin if any of the user request for password change is performed by this method.<br><br>
+Notify_doc_upload (message)<br>
+•	Return type: String<br>
+•	Purpose and description:  If any kind of document uploaded and previous document updated this method will notify user so that user can also sync update his file.<br><br>
+Notify_when_login() (message)<br>
+•	Return type: String<br>
+•	Purpose and description: Any kind of unauthorized login attempt is reported to admin by sending notification.<br><br>
+
+    </p>
+
+    <h5>Class: Backup</h5>
+    <p>This class will perform data backup and recovery operation both automatically by system and manually by user.</p>
+    <h6>Methods:</h6>
+    <p>
+      Backup_to_database ()<br>
+•	Return type: void<br>
+•	Purpose and description: This method will keep the backup of database to a dedicated space by automatically as well as manually by user.<br><br>
+Recover_from_db ()<br>
+•	Return type: Void<br>
+•	Purpose and description:  Backed-up data can be manually recovered from the dedicated space and this method will perform the action.<br><br>
+
+    </p>
+
+    <p style="page-break-after:always"></p>
+    <p><br></p>
+    <p><br></p>
+
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 id="sequenceD" href="#"> Sequence Diagrams </h1><br>
+    <div class="text-center"><img src="Pictures/Sequence_Diagram.jpg" width="80%" height="auto" alt="Sequence Diagram"></div>
+
+    <p><br></p>
+    <p style="page-break-after:always"></p>
+    <p><br></p>
+    <p><br></p>
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 id="DBdesign" href="#"> Database Design </h1>
+    <h4 class="text-center">ER Diagram</h4>
+
+    <div class="text-center"><img src="Pictures/ER_Diagram.jpg" alt="ER Diagram"></div>
+    <p><br></p>
+    <h4 style="padding: 0px 0px 15px 0px;" >Purpose of the table:</h4>
+
+    <h5>User:</h5>
+    <p>The User table is where the data about the user id,user name,user link,password,group id and role id is stored. Here group ID and role id is foreign keys
+      and user ID is primary key. In this table user have specific id and name,the user can change the password,user also has a group id and have a
+      link to user profile. User have specific role id to clarify the role.
+    </p>
+
+    <h6>Attributes of USER table:</h6>
+
+      <p>• user_id : Primary Key. This is int type .It holds the id of users. <br>
+         • user_name : This is string type. It contains the name of user.<br>
+         • password: This is string type . It will store password of the the user.<br>
+         • user_link : Foreign Key. This is string type. It will store link of the user.<br>
+         • group_id : This is string type. Specifies the group of the user.<br>
+         • role_id  : Foreign Key. This is string type . It will clarify the role of the user.</p>
+
+    <h5>Repository:</h5>
+    <p> The Repository table is where the data about the repository id, repository name, create date,user id is stored. Here, repository id is primary key and user id is foreign key.
+      In this table, repository have specific id and name , create date of the repository and the user id who  create the repository.</p>
+
+  <h6>Attributes of REPOSITORY table:</h6>
+
+  <p>• repo_id: Primary Key. This is int type. Every repository have specific id. <br>
+     • repo_name : This is string type. Every repository have specific name.<br>
+     • create_date: This is date type . It will show the the create date of the repository.<br>
+     • user_id : Foreign Key. This is int type. It will show who created the repository and it will verify the specific user of the repository. </p>
+
+
+  <h5>Role:</h5>
+  <p>The Role table is where the information about the role id,role name is stored.It will clarify the position of admin ,employee, manager. </p>
+
+  <h6>Attributes of ROLE table:</h6>
+
+  <p>• role_id : Primary Key. This is int type. It holds the role id and it is very important because it will specify the role .<br>
+     • role_name :  Foreign Key. This is string type. It hold the name of role and it clarify the position.</p>
+
+
+  <h5>File:</h5>
+  <p>
+    The file table will store the informations such as document ID,name, upload date, author's name, user id and folder id of files. Here, document id is the primary key.
+    and user id, folder id is foreign key. In this table, Files have unique id, name, the date of upload and the authors name. It also have the user's id who uploaded it and the folder's id
+    in which it belong.
+  </p>
+
+  <h6>Attributes of FILE table:</h6>
+
+  <p> • doc_id : Primary Key. This is int type .It stores the document's id number. <br>
+      • doc_name : This is string type. It contains the name of file.<br>
+      • upload_date : This is string type . It store's the date of file upload.<br>
+      • author_name : This is string type. It holds the name of the author .<br>
+      • user_id : Foreign Key. This is int type. It will store the user id's to show who has access to the file. <br>
+      • folder_id: Foreign Key. This is int type. It will store folder id's to show in which folder the file belong.</p>
+
+  <h5>Group:</h5>
+  <p>The Group table is where the information about the Group id,role name is stored. Here, group id is the primary key. </p>
+
+  <h6>Attributes of GROUP table:</h6>
+
+  <p>• group_id : Primary Key. This is int type. It holds the group id and it will specify the group .<br>
+     • group_name : This is string type. It hold the name of the group.</p>
+
+  <h5>Folder:</h5>
+  <p>The Folder table is where the information about the Folder id, folder name and repository id is stored.It will basically store the folder information. Here,
+      folder id is primary key and repository id is foreign key.
+  </p>
+
+  <h6>Attributes of FOLDER table:</h6>
+
+  <p> • folder_id : Primary Key. This is int type. It holds the folder id and it will specify the group .<br>
+      • folder_name :  This is string type. It hold the name of the folder.<br>
+      • repo_id :  Foreign Key, This is int type. It indicates the repository in which the folder belong.</p>
+
+
+    <p style="page-break-after:always"></p>
+    <p><br></p>
+    <p><br></p>
+  </div>
+
+  <div class="w3-container w3-padding-32 w3-center">
+    <h1 id="plan" href="#"> Implementation Plan </h1><br>
+
+    <!-- here goes the text -->
+    <p align="justify">A developer team of four member are will work simultaneously. As the whole project is done by only four people, so, for designing the SRS (Software Requirements Specification) and SDS (Software Design Specification) whole team works and hold meeting session regularly. After discussing decision will made if any kind of change in necessary. Within first week SRS should be completed and within next 15 days SDS should be completed by holding regular meeting at Google-meet. Shahrukh Fardin is better than everybody in graphics designing. He should design all graphical segment by discussing with rest of the team. Sajib Hossain, Kamrus Samad and Tanvir will do rest of the part by diving work among them with in SRS and SDS submit deadline. Our project will run on multiple platform. We are planning to deploy t his software in two platform Android and Windows. We will develop the software so that it can run on minimum android 4.3 for computer windows seven or later edition that can run HTML5. But for our testing we are using windows 10 and virtual emulator for android. SQLite come with the framework Django. It’s easy and free of cost. We will use this as database system and REST API to communicate with the software interface as well as other service. HTML5, CSS, java-script, bootstrap and Django for web-based application and JAVA for android development. Designing user interface, database and UML diagram whole team works by holding meeting every-day. After completing design Kamrus Samad and Shahrukh Fardin will work on web-based application. On the other hand, Sajib Hossain and Tanvir will develop android application using Android studio within next 25 days (can be change with deadline). As same user interface will be deployed in multiple platform, so, everybody will follow same user interface design and same method name for well coordination. </p>
+
+    <p><br></p>
+    <p><br></p>
+
+</div>
+
+    <script src = "sds.js"></script>
+</body>
+</html>

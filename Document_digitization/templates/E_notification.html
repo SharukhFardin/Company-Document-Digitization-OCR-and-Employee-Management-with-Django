@@ -1,0 +1,37 @@
+{% extends 'e_page.html' %}
+{% load static %}
+  {% block content %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'C_User.css' %}"> <!-- stylesheet for create user page -->
+        <link rel="stylesheet" href="{% static 'A_notification.css' %}">
+
+        <!-- Notification Table -->
+        <div class="container" style="padding-top:63px;">
+          <div class="" id="table-wrapper">
+            <div class="" id="table-scroll">
+              <table class="table table-bordered table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col-8">Notification Message</th>
+                    <th scope="col">Recieved At</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <form class="" action="A_notification" method="post">
+                    {% csrf_token %}
+                    <!-- {% for Notifications in Notification %} -->
+                    <tr>
+                      <td>{{Notifications.message}}</td>
+                      <td>{{Notifications.time}}</td>
+                    </tr>
+                    <!-- {% endfor %} -->
+                  </form>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+
+  {% endblock %}

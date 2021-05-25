@@ -1,0 +1,128 @@
+{% extends 'manager_page.html' %}
+{% load static %}
+  {% block content %}
+  <style media="screen">
+    #ginp{
+      width: 98%;
+      padding: 8px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: rgba(0, 0, 0, 0.062);
+      border-bottom: 2px solid black;
+      font-size: 14px;
+  }
+  </style>
+  <link rel="stylesheet" href="{% static 'C_User.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <div class="" style="padding-top:58px;">
+    <form action="c_group" class="cgf" method="POST">
+      {% csrf_token %}
+      <div class="cg">
+        <h1>Create Group</h1>
+        <hr id="hr2">
+
+        <input type="text" placeholder="Enter Group Id" name="gid" id="inp" required>
+        <input type="text" placeholder="Enter Group Name" name="gname" id="inp" required>
+        <h3>Add members</h3>
+
+        <div class="row">
+          <div class="col">
+            <div>
+              <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="ucidw" id="ginp"">
+               <datalist id="browsers">
+                 {% for i in userid %}
+                 <option value="{{ i.id}}">
+                 {% endfor %}
+               </datalist>
+            </div>
+
+            <div>
+              <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="ucidx" id="ginp"">
+               <datalist id="browsers">
+                 {% for i in userid %}
+                 <option value="{{ i.id}}">
+                 {% endfor %}
+               </datalist>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="ucidy" id="ginp"">
+               <datalist id="browsers">
+                 {% for i in userid %}
+                 <option value="{{ i.id}}">
+                 {% endfor %}
+               </datalist>
+            </div>
+
+            <div>
+              <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="ucidz" id="ginp"">
+               <datalist id="browsers">
+                 {% for i in userid %}
+                 <option value="{{ i.id}}">
+                 {% endfor %}
+               </datalist>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" class="gbtn">Create</button>
+        </div>
+        <div>
+          {% for message in messages %}
+          <p style="font-family: Lucida Console, Courier New, monospace;"> {{message}}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+
+
+
+  <!-- <div class="flex-container">
+    <div class="flex-child total_user">
+      <form action="c_group" method="POST">
+        {% csrf_token %}
+        <h3>Add Member </h3>
+        <hr id="hr2">
+
+        <div>
+          <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="ucid" id="uinp"">
+           <datalist id="browsers">
+             {% for i in userid %}
+             <option value="{{ i.id}}">
+             {% endfor %}
+           </datalist>
+        </div>
+        <div>
+          <input type="text" Placeholder="Select Group id" class="form-control" name="gcid" id="uinp"">
+        </div>
+        <button type="submit" class="sbtn">Submit</button>
+      </form>
+    </div>
+
+    <div class="flex-child total_group">
+      <h3>Delete Member </h3>
+      <hr id="hr2">
+      <div>
+        <input type="text" list="browsers" Placeholder="Search id.." class="form-control" name="udid" id="uinp"">
+         <datalist id="browsers">
+           {% for i in userid %}
+           <option value="{{ i.id}}">
+           {% endfor %}
+         </datalist>
+      </div>
+      <div>
+        <input type="text" Placeholder="Select Group id" class="form-control" name="gcid" id="uinp"">
+      </div>
+       <button type="submit" class="sbtn">Submit</button>
+   </div>
+  </div> -->
+
+  {% endblock %}

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+    <style media="screen">
+      #pic2{
+        float: left;
+        margin-left: 170px;
+        margin-right: 50px;
+        padding-left:20px;
+        height:60px;
+        width:auto;
+      }
+      table, td, th {
+        border: 1px solid white;
+        padding: 5px;
+        color:white;
+        background-color:black;
+      }
+
+      table {
+        margin-top: 2%;
+        margin-bottom: 7%;
+        width: 40%;
+        border-collapse: collapse;
+      }
+    </style>
+</head>
+<body style="background-image:url({% static 'background.jpg' %}); background-size:cover; background-position:0% -4%; background-repeat:no-repeat; height:100%;">
+    <div class="icon-bar">
+        <img id="pic2" src="{% static 'Million-Dollar-Logo.jpg' %}" alt="Plan international logo" width="60" height="60">
+        <a class="active" href="manager_page"><button id="A-btn">Home </button></a>
+        <a href="{% static '#' %}"><button id="A-btn">Message </button></a>
+        <a href="M_notification"><button id="A-btn">Notification </button></a>
+        <a href="c_group"><button id="A-btn">Create Group</button></a>
+        <a href="manager_profile"><button id="A-btn">Profile </button></a>
+        <a href="logout_user"><button id="A-btn">Log-Out </button></a>
+    </div>
+    {% block content %}
+    {%
+      <h2 style="float:right;  padding-top:50px; padding-right:20px;">Weclome, {{ xy }}</h1>
+    %}
+
+
+    <link rel="stylesheet" href="{% static 'admin_page.css' %}"> <!-- stylesheet for admin home page -->
+
+     <h1 id="cname">Plan International</h1>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search" >
+        </form>
+      </div>
+
+      <div class="flex-container">
+        <div class="flex-child total_user">
+          <h1>Total users: {{ tu }} </h1>
+        </div>
+
+        <div class="flex-child total_group">
+          <h1>Total groups: {{ tg }} </h1>
+       </div>
+      </div>
+
+
+      <center>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Document</th>
+                <th scope="col">Upload Time</th>
+                <th scope="col">Group</th>
+                <th scope="col">Uploader</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for file in fl %}
+              {% for files in file %}
+              <tr>
+               <form action="pdf_view" method="GET">
+                <td>
+                    <button name="btn1" style="padding: 0%;  width: 100%; height:0%; border:none; background:none;" type="submit"><input style="height:0%; color: aliceblue; width: 100%; background:none; border:none;" id="pdfname" name="pdfname" value="{{files.name}}"></button>
+                </td>
+                <td>{{files.upload_date}}</td>
+                <td>{{files.group_id.group_name}}</td>
+                <td>{{files.user_id.name}}</td>
+                <td><button name="btn2" type="submit" class="btn btn-danger">Delete</button></td>
+               </form>
+              </tr>
+              {% endfor %}
+            {% endfor %}
+            </tbody>
+          </table>
+      </center>
+
+
+      {% endblock %}
+
+      <div class="footer">
+        <p>Contact: <br>
+            +0099809742 <br>
+            example.mail@plani.org
+      </div>
+</body>
+</html>
