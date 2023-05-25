@@ -1,2 +1,2 @@
 # Document-Digitization-Management
-This is the Project that I did for my CSE327 (Software Engineering Course) under Nabeel sir(NBM) in NSU. I used Django framework with other necessary frontend and backend technologies for this.
+This is the Project that I did for my CSE327 (Software Engineering Course) under Nabeel sir(NBM) in NSU. As the name suggests, this project helps the employees of an organization to degitalize all the written documents in a way that the informations can be fetched whenever it is necessary (OCR - Optical Character Recogniiton). An admin panel is there for managing the organizations structure. Django framework with other necessary frontend and backend technologies are used in this project. 
